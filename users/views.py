@@ -1,6 +1,4 @@
-from django.shortcuts import render
-
-
+from django.shortcuts import render, redirect 
 from django.http import HttpResponse
 
 from users.models import User
@@ -16,4 +14,10 @@ def detail(request, id):
     except User.DoesNotExist:
         return HttpResponse("User not found", status=404)
     
-
+def delete(request, id):
+    try:
+        user = User.objects.get(id=id)
+        user.delete()
+        return redirect("/users/list/")
+    except User.DoesNotExist:
+        return HttpResponse("User not found", status=404)
