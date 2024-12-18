@@ -12,6 +12,6 @@ def list(request):
 def detail(request, id):
     try:
         user = User.objects.get(id=id)
-        return render(request, "detail.html", {"user": user})
+        return render(request, "details.html", {"user": user})
     except User.DoesNotExist:
         return HttpResponse("User not found", status=404)
