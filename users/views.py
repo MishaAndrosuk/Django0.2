@@ -15,3 +15,5 @@ def detail(request, id):
         return render(request, "details.html", {"user": user})
     except User.DoesNotExist:
         return HttpResponse("User not found", status=404)
+    
+
