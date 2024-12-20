@@ -1,0 +1,55 @@
+{% extends "_layout.html" %}
+
+{% block header %}<div class="hidden-header">Create New User</div>{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-lg border-0" style="border-radius: 20px;">
+        <div class="card-header text-white text-center" style="background: linear-gradient(135deg, #6a11cb, #2575fc); padding: 30px;">
+            <h2 class="mb-0">Create New User</h2>
+        </div>
+        <div class="card-body p-4" style="background-color: #f9f9f9;">
+            <form method="post" action="/users/create/">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label class="form-label" style="font-weight: bold;">First Name</label>
+                    <input type="text" name="first_name" class="form-control form-control-lg" placeholder="Enter first name" required style="border-radius: 10px;">
+                </div>
+                <div class="mb-4">
+                    <label class="form-label" style="font-weight: bold;">Last Name</label>
+                    <input type="text" name="last_name" class="form-control form-control-lg" placeholder="Enter last name" required style="border-radius: 10px;">
+                </div>
+                <div class="mb-4">
+                    <label class="form-label" style="font-weight: bold;">Email</label>
+                    <input type="email" name="email" class="form-control form-control-lg" placeholder="Enter email address" required style="border-radius: 10px;">
+                </div>
+                <div class="mb-4">
+                    <label class="form-label" style="font-weight: bold;">Birthday</label>
+                    <input type="date" name="birthday" class="form-control form-control-lg" required style="border-radius: 10px;">
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-gradient btn-lg" style="padding: 10px 40px; border-radius: 50px; background: linear-gradient(135deg, #ff758c, #ff7eb3); color: #fff; font-size: 1.2rem; font-weight: bold; border: none; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.2s ease, box-shadow 0.2s ease;">
+                        Create User
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .btn-gradient:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-control-lg:focus {
+        box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
+        border-color: #6a11cb;
+    }
+    
+    .hidden-header {
+        display: none;
+    }
+</style>
+{% endblock %}

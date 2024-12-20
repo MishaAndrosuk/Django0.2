@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect 
 from django.http import HttpResponse
 
+from users.forms.create import CreateUser
 from users.models import User
 
 def list(request):
@@ -21,3 +22,17 @@ def delete(request, id):
         return redirect("/users/list/")
     except User.DoesNotExist:
         return HttpResponse("User not found", status=404)
+
+
+def create(request):
+
+    form = CreateUser()
+
+    if request.method == "POST":
+        form = CreateUser(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect("/users/list/")
+
+    return render(request, "create.html", {"form": form})
