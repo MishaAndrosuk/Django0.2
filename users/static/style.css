@@ -1,7 +1,6 @@
 body {
     display: flex;
     flex-direction: column;
-    /* viewport height */
     min-height: 100vh;
 }
 
