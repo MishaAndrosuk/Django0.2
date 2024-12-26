@@ -1,0 +1,55 @@
+{% extends "_layout_films.html" %}
+{% block header %}<div class="hidden-header">Create New User</div>{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-lg border-0" style="border-radius: 20px;">
+        <div class="card-header text-white text-center" style="background: linear-gradient(135deg, #ff758c, #ff7eb3); padding: 30px;">
+            <h2 class="mb-0">Edit User</h2>
+        </div>
+        <div class="card-body p-4" style="background-color: #f9f9f9;">
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label class="form-label" style="font-weight: bold;">First Name</label>
+                    <input value="{{ form.first_name.value }}" type="text" name="first_name" class="form-control form-control-lg" placeholder="Enter user name" required style="border-radius: 10px;">
+                </div>
+                <div class="mb-4">
+                    <label class="form-label" style="font-weight: bold;">Last Name</label>
+                    <input value="{{ form.last_name.value }}" type="text" name="last_name" class="form-control form-control-lg" placeholder="Enter last name" required style="border-radius: 10px;">
+                </div>
+                <div class="mb-4">
+                    <label class="form-label" style="font-weight: bold;">Email</label>
+                    <input value="{{ form.email.value }}" type="email" name="email" class="form-control form-control-lg" placeholder="Enter email address" required style="border-radius: 10px;">
+                </div>
+                <div class="mb-4">
+                    <label class="form-label" style="font-weight: bold;">Birthday</label>
+                    <input value="{{ form.birthday.value }}" type="date" name="birthday" class="form-control form-control-lg" required style="border-radius: 10px;">
+                </div>
+                <div class="text-center d-flex justify-content-around">
+                    <button type="submit" class="btn btn-gradient btn-lg" style="padding: 10px 40px; border-radius: 50px; background: linear-gradient(135deg, #6a11cb, #2575fc); color: #fff; font-size: 1.2rem; font-weight: bold; border: none; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.2s ease, box-shadow 0.2s ease;">
+                        Save Changes
+                    </button>
+                    <a href="/users/list/" class="btn btn-outline-secondary btn-lg" style="padding: 10px 40px; border-radius: 50px; font-size: 1.2rem; font-weight: bold;">
+                        Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .btn-gradient:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-control-lg:focus {
+        box-shadow: 0 0 5px rgba(255, 117, 140, 0.5);
+        border-color: #ff758c;
+    }
+    .hidden-header {
+        display: none;
+    }
+</style>
+{% endblock %}
