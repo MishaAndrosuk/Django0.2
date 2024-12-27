@@ -1,4 +1,4 @@
-{% extends "_layout.html" %}
+{% extends "_layout_users.html" %}
 
 {% block header %}
 <div class="d-flex justify-content-center align-items-center" style="height: 20px;">
@@ -35,10 +35,10 @@
                         <td>{{ user.birthday }}</td>
                         <td class="text-center">
                             <div class="btn-group" role="group">
-                                <a href="{% url 'details' user.id %}" class="btn btn-info btn-sm" title="View User">
+                                <a href="{% url 'user_details' user.id %}" class="btn btn-info btn-sm" title="View User">
                                     <i class="bi bi-eye"></i>
                                 </a>
-                                <a href="{% url 'edit' user.id %}" class="btn btn-warning btn-sm" title="Edit User">
+                                <a href="{% url 'edit_user' user.id %}" class="btn btn-warning btn-sm" title="Edit User">
                                     <i class="bi bi-pencil"></i>
                                 </a>
                                 <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{ user.id }}" title="Delete User">
@@ -67,7 +67,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <form method="post" action="{% url 'delete' user.id %}">
+                <form method="post" action="{% url 'delete_user' user.id %}">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>

@@ -1,15 +1,15 @@
-{% extends "_layout.html" %}
+{% extends "_layout_films.html" %}
 
-{% block header %}<div class="hidden-header">Create New User</div>{% endblock %}
+{% block header %}<div class="hidden-header">Create New Film</div>{% endblock %}
 
 {% block content %}
 <div class="container mt-5">
     <div class="card shadow-lg border-0" style="border-radius: 20px;">
         <div class="card-header text-white text-center" style="background: linear-gradient(135deg, #6a11cb, #2575fc); padding: 30px;">
-            <h2 class="mb-0">Create New User</h2>
+            <h2 class="mb-0">Create New Film</h2>
         </div>
         <div class="card-body p-4" style="background-color: #f9f9f9;">
-            <form method="post" action="/users/create/">
+            <form method="post" action="/films/create/">
                 {% csrf_token %}
                 <div class="mb-4">
                     <label class="form-label" style="font-weight: bold;">First Name</label>
