@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from films.forms.create import CreateFilm
-from films.forms.edit import EditFiml
+from films.forms.edit import EditFilm
 from films.models import Film
 
 
@@ -28,25 +28,26 @@ def delete(request, id):
 
 
 def create(request):
-
     form = CreateFilm()
 
     if request.method == "POST":
-        form = CreateFilm(request.POST)
+        form = CreateFilm(request.POST, request.FILES)
 
         if form.is_valid():
             form.save()
             return redirect("/films/")
+        else:
+            return render(request, "create_film.html", {"form": form})
 
     return render(request, "create_film.html", {"form": form})
 
 def edit(request, id):
     try:
         film = Film.objects.get(id=id)
-        form = EditFiml(instance=film)
+        form = EditFilm(instance=film)
 
         if request.method == "POST":
-            form = CreateFilm(request.POST, instance=film)
+            form = EditFilm(request.POST, request.FILES, instance=film)
 
             if form.is_valid():
                 form.save()

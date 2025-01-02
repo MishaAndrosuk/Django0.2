@@ -1,29 +1,41 @@
 {% extends "_layout_films.html" %}
-{% block header %}<div class="hidden-header">Create New User</div>{% endblock %}
+{% block header %}<div class="hidden-header">Edit Film</div>{% endblock %}
 {% block content %}
 <div class="container mt-5">
     <div class="card shadow-lg border-0" style="border-radius: 20px;">
         <div class="card-header text-white text-center" style="background: linear-gradient(135deg, #ff758c, #ff7eb3); padding: 30px;">
-            <h2 class="mb-0">Edit User</h2>
+            <h2 class="mb-0">Edit Film</h2>
         </div>
         <div class="card-body p-4" style="background-color: #f9f9f9;">
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="mb-4">
-                    <label class="form-label" style="font-weight: bold;">First Name</label>
-                    <input value="{{ form.first_name.value }}" type="text" name="first_name" class="form-control form-control-lg" placeholder="Enter user name" required style="border-radius: 10px;">
+                    <label class="form-label" style="font-weight: bold;">Title</label>
+                    <input value="{{ form.title.value }}" type="text" name="title" class="form-control form-control-lg" placeholder="Enter film title" required style="border-radius: 10px;">
                 </div>
                 <div class="mb-4">
-                    <label class="form-label" style="font-weight: bold;">Last Name</label>
-                    <input value="{{ form.last_name.value }}" type="text" name="last_name" class="form-control form-control-lg" placeholder="Enter last name" required style="border-radius: 10px;">
+                    <label class="form-label" style="font-weight: bold;">Year</label>
+                    <input value="{{ form.year.value }}" type="number" name="year" class="form-control form-control-lg" placeholder="Enter release year" required style="border-radius: 10px;">
                 </div>
                 <div class="mb-4">
-                    <label class="form-label" style="font-weight: bold;">Email</label>
-                    <input value="{{ form.email.value }}" type="email" name="email" class="form-control form-control-lg" placeholder="Enter email address" required style="border-radius: 10px;">
+                    <label class="form-label" style="font-weight: bold;">Director</label>
+                    <input value="{{ form.director.value }}" type="text" name="director" class="form-control form-control-lg" placeholder="Enter director's name" required style="border-radius: 10px;">
                 </div>
                 <div class="mb-4">
-                    <label class="form-label" style="font-weight: bold;">Birthday</label>
-                    <input value="{{ form.birthday.value }}" type="date" name="birthday" class="form-control form-control-lg" required style="border-radius: 10px;">
+                    <label class="form-label" style="font-weight: bold;">Rating</label>
+                    <input value="{{ form.rating.value }}" type="number" step="0.1" name="rating" class="form-control form-control-lg" placeholder="Enter rating (e.g., 8.5)" required style="border-radius: 10px;">
+                </div>
+                <div class="mb-4">
+                    <label class="form-label" style="font-weight: bold;">Genre</label>
+                    <input value="{{ form.genre.value }}" type="text" name="genre" class="form-control form-control-lg" placeholder="Enter genre (e.g., Comedy)" required style="border-radius: 10px;">
+                </div>
+                <div class="mb-4">
+                    <label class="form-label" style="font-weight: bold;">Runtime (minutes)</label>
+                    <input value="{{ form.runtime.value }}" type="number" name="runtime" class="form-control form-control-lg" placeholder="Enter runtime in minutes" required style="border-radius: 10px;">
+                </div>
+                <div class="mb-4">
+                    <label class="form-label" style="font-weight: bold;">Description</label>
+                    <textarea name="description" class="form-control form-control-lg" rows="4" placeholder="Enter a brief description" required style="border-radius: 10px;">{{ form.description.value }}</textarea>
                 </div>
                 <div class="text-center d-flex justify-content-around">
                     <button type="submit" class="btn btn-gradient btn-lg" style="padding: 10px 40px; border-radius: 50px; background: linear-gradient(135deg, #6a11cb, #2575fc); color: #fff; font-size: 1.2rem; font-weight: bold; border: none; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.2s ease, box-shadow 0.2s ease;">

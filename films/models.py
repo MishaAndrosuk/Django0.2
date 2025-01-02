@@ -1,13 +1,13 @@
 from django.db import models
 
 class Film(models.Model):
-    title = models.CharField(max_length=100)
-    year = models.IntegerField()
-    director = models.CharField(max_length=100)
-    rating = models.FloatField()
-    genre = models.CharField(max_length=100)
-    runtime = models.IntegerField()
-    description = models.TextField()
+    title = models.CharField(max_length=100, null=False, blank=False, default="")
+    year = models.IntegerField(null=False, blank=False)
+    director = models.CharField(max_length=100, null=False, blank=False, default="")
+    rating = models.FloatField(null=False, blank=False)
+    genre = models.CharField(max_length=100, null=False, blank=False, default="")
+    runtime = models.IntegerField(null=False, blank=False)
+    description = models.TextField(null=False, blank=False, default="")
 
     def __str__(self):
         return self.title

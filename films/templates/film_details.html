@@ -2,24 +2,40 @@
 
 {% block header %}
 <div class="d-flex justify-content-center align-items-center" style="height: 20px;">
-    <h1 style="font-size: 2.5rem; font-weight: bold; text-align: center;">User details</h1>
+    <h1 style="font-size: 2.5rem; font-weight: bold; text-align: center;">Film Details</h1>
 </div>
 {% endblock %}
 
 {% block content %}
 <div class="container mt-5 d-flex justify-content-center">
-    <div class="card shadow-lg border-0" style="width: 100%; max-width: 600px; border-radius: 20px; overflow: hidden;">
+    <div class="card shadow-lg border-0" style="width: 100%; max-width: 800px; border-radius: 20px; overflow: hidden;">
         <div class="card-header text-white text-center" style="background: linear-gradient(135deg, #6a11cb, #2575fc); padding: 40px 20px;">
-            <h1 class="card-title mb-0" style="font-size: 2.5rem; font-weight: bold;">{{ user.first_name }} {{ user.last_name }}</h1>
+            <h1 class="card-title mb-0" style="font-size: 2.5rem; font-weight: bold;">{{ film.title }}</h1>
+            <p style="font-size: 1.2rem; font-weight: 500;">{{ film.year }}</p>
         </div>
+        {% if film.image %}
+        <img src="{{ film.image.url }}" alt="{{ film.title }}" class="img-fluid" style="max-height: 400px; object-fit: cover;">
+        {% endif %}
         <div class="card-body" style="background-color: #f9f9f9; padding: 30px;">
             <div class="mb-4">
-                <p class="mb-2" style="color: #6c757d; font-size: 1rem; font-weight: 600;">Email</p>
-                <p style="font-size: 1.2rem; font-weight: 500; color: #333;">{{ user.email }}</p>
+                <p class="mb-2" style="color: #6c757d; font-size: 1rem; font-weight: 600;">Director</p>
+                <p style="font-size: 1.2rem; font-weight: 500; color: #333;">{{ film.director }}</p>
+            </div>
+            <div class="mb-4">
+                <p class="mb-2" style="color: #6c757d; font-size: 1rem; font-weight: 600;">Rating</p>
+                <p style="font-size: 1.2rem; font-weight: 500; color: #333;">{{ film.rating }}</p>
+            </div>
+            <div class="mb-4">
+                <p class="mb-2" style="color: #6c757d; font-size: 1rem; font-weight: 600;">Genre</p>
+                <p style="font-size: 1.2rem; font-weight: 500; color: #333;">{{ film.genre }}</p>
+            </div>
+            <div class="mb-4">
+                <p class="mb-2" style="color: #6c757d; font-size: 1rem; font-weight: 600;">Runtime</p>
+                <p style="font-size: 1.2rem; font-weight: 500; color: #333;">{{ film.runtime }} minutes</p>
             </div>
             <div>
-                <p class="mb-2" style="color: #6c757d; font-size: 1rem; font-weight: 600;">Birthday</p>
-                <p style="font-size: 1.2rem; font-weight: 500; color: #333;">{{ user.birthday }}</p>
+                <p class="mb-2" style="color: #6c757d; font-size: 1rem; font-weight: 600;">Description</p>
+                <p style="font-size: 1.2rem; font-weight: 500; color: #333;">{{ film.description }}</p>
             </div>
         </div>
         <div class="card-footer text-center" style="background-color: #fff; padding: 20px;">
