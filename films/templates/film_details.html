@@ -1,47 +1,46 @@
 {% extends "_layout_films.html" %}
+{%block header%}
 
-{% block header %}
-<div class="d-flex justify-content-center align-items-center" style="height: 20px;">
-    <h1 style="font-size: 2.5rem; font-weight: bold; text-align: center;">Film Details</h1>
-</div>
 {% endblock %}
 
 {% block content %}
 <div class="container mt-5 d-flex justify-content-center">
     <div class="card shadow-lg border-0" style="width: 100%; max-width: 800px; border-radius: 20px; overflow: hidden;">
-        <div class="card-header text-white text-center" style="background: linear-gradient(135deg, #6a11cb, #2575fc); padding: 40px 20px;">
-            <h1 class="card-title mb-0" style="font-size: 2.5rem; font-weight: bold;">{{ film.title }}</h1>
-            <p style="font-size: 1.2rem; font-weight: 500;">{{ film.year }}</p>
+        <div class="card-header text-white text-center" style="background: linear-gradient(135deg, #c3d4d1, #717575); padding: 50px 20px;">
+            <h1 class="card-title mb-2" style="font-size: 3rem; font-weight: 800; letter-spacing: 1px;">{{ film.title }}</h1>
+            <p style="font-size: 1.3rem; font-weight: 500; color: #ecf0f1;">Released: {{ film.year }}</p>
         </div>
         {% if film.image %}
-        <img src="{{ film.image.url }}" alt="{{ film.title }}" class="img-fluid" style="max-height: 400px; object-fit: cover;">
+        <div style="overflow: hidden; max-height: 450px;">
+            <img src="{{ film.image.url }}" alt="{{ film.title }}" class="img-fluid w-100" style="object-fit: cover;">
+        </div>
         {% endif %}
-        <div class="card-body" style="background-color: #f9f9f9; padding: 30px;">
+        <div class="card-body" style="background-color: #fdfefe; padding: 40px;">
             <div class="mb-4">
-                <p class="mb-2" style="color: #6c757d; font-size: 1rem; font-weight: 600;">Director</p>
-                <p style="font-size: 1.2rem; font-weight: 500; color: #333;">{{ film.director }}</p>
+                <p class="mb-2" style="color: #95a5a6; font-size: 1.1rem; font-weight: 600;">Director</p>
+                <p style="font-size: 1.4rem; font-weight: 700; color: #2c3e50;">{{ film.director }}</p>
             </div>
             <div class="mb-4">
-                <p class="mb-2" style="color: #6c757d; font-size: 1rem; font-weight: 600;">Rating</p>
-                <p style="font-size: 1.2rem; font-weight: 500; color: #333;">{{ film.rating }}</p>
+                <p class="mb-2" style="color: #95a5a6; font-size: 1.1rem; font-weight: 600;">Rating</p>
+                <p style="font-size: 1.4rem; font-weight: 700; color: #2c3e50;">{{ film.rating }}</p>
             </div>
             <div class="mb-4">
-                <p class="mb-2" style="color: #6c757d; font-size: 1rem; font-weight: 600;">Genre</p>
-                <p style="font-size: 1.2rem; font-weight: 500; color: #333;">{{ film.genre }}</p>
+                <p class="mb-2" style="color: #95a5a6; font-size: 1.1rem; font-weight: 600;">Genre</p>
+                <p style="font-size: 1.4rem; font-weight: 700; color: #2c3e50;">{{ film.genre }}</p>
             </div>
             <div class="mb-4">
-                <p class="mb-2" style="color: #6c757d; font-size: 1rem; font-weight: 600;">Runtime</p>
-                <p style="font-size: 1.2rem; font-weight: 500; color: #333;">{{ film.runtime }} minutes</p>
+                <p class="mb-2" style="color: #95a5a6; font-size: 1.1rem; font-weight: 600;">Runtime</p>
+                <p style="font-size: 1.4rem; font-weight: 700; color: #2c3e50;">{{ film.runtime }} minutes</p>
             </div>
             <div>
-                <p class="mb-2" style="color: #6c757d; font-size: 1rem; font-weight: 600;">Description</p>
-                <p style="font-size: 1.2rem; font-weight: 500; color: #333;">{{ film.description }}</p>
+                <p class="mb-2" style="color: #95a5a6; font-size: 1.1rem; font-weight: 600;">Description</p>
+                <p style="font-size: 1.3rem; font-weight: 500; color: #34495e;">{{ film.description }}</p>
             </div>
         </div>
-        <div class="card-footer text-center" style="background-color: #fff; padding: 20px;">
-            <button class="btn btn-gradient" onclick="history.back()" style="padding: 10px 30px; font-size: 1rem; font-weight: 600; color: #fff; border: none; border-radius: 50px; background: linear-gradient(135deg, #ff7eb3, #ff758c); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.2s ease, box-shadow 0.2s ease;">
-                <i class="bi bi-arrow-left" style="margin-right: 8px;"></i> Back
-            </button>
+        <div class="card-footer text-center" style="background-color: #ecf0f1; padding: 20px;">
+            <a class="btn btn-gradient" href="/films/" style="padding: 12px 40px; font-size: 1rem; font-weight: 600; color: #fff; border: none; border-radius: 30px; background: linear-gradient(135deg, #160a09, #2f2b2b); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); transition: all 0.3s;">
+                <i class="bi bi-arrow-left" style="margin-right: 10px;"></i> Back
+            </a>
         </div>
     </div>
 </div>
@@ -50,8 +49,17 @@
 
 <style>
     .btn-gradient:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        transform: scale(1.05);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+    }
+
+    .card-title {
+        text-transform: uppercase;
+        text-shadow: 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    p {
+        line-height: 1.6;
     }
 </style>
 {% endblock %}
