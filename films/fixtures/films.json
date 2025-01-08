@@ -9,7 +9,8 @@
             "rating": 9.3,
             "genre": "Drama",
             "runtime": 142,
-            "description": "Two imprisoned"
+            "description": "Two imprisoned",
+            "photo": "photos/TheShawshankRedemption.jpg"
         }
     },
     {
@@ -22,7 +23,8 @@
             "rating": 9.2,
             "genre": "Crime",
             "runtime": 175,
-            "description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son."
+            "description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+            "photo": "photos/TheGodfather.jpg"
         }
     },
     {
@@ -35,7 +37,8 @@
             "rating": 9.0,
             "genre": "Action",
             "runtime": 152,
-            "description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice."
+            "description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+            "photo": "photos/TheDarkKnight.jpg"
         }
     },
     {
@@ -48,7 +51,8 @@
             "rating": 8.8,
             "genre": "Sci-Fi",
             "runtime": 148,
-            "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O."
+            "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
+            "photo": "photos/Inception.jpg"
         }
     },
     {
@@ -61,7 +65,8 @@
             "rating": 8.9,
             "genre": "Crime",
             "runtime": 154,
-            "description": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption."
+            "description": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+            "photo": "photos/PulpFiction.jpg"
         }
     },
     {
@@ -74,7 +79,8 @@
             "rating": 8.7,
             "genre": "Sci-Fi",
             "runtime": 136,
-            "description": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers."
+            "description": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
+            "photo": "photos/TheMatrix.jpg"
         }
     }
 ]

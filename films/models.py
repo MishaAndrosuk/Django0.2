@@ -8,7 +8,7 @@ class Film(models.Model):
     genre = models.CharField(max_length=100, null=False, blank=False, default="")
     runtime = models.IntegerField(null=False, blank=False)
     description = models.TextField(null=False, blank=False, default="")
-    photo = models.ImageField(blank=True)
+    photo = models.ImageField(blank=True, upload_to="photos/")
 
     def __str__(self):
         return self.title

@@ -67,6 +67,13 @@
                     {% endfor %}
                 </div>
 
+                <div class="mb-4">
+                    <label class="form-label" style="font-weight: bold;">Photo</label>
+                    <input type="file" name="photo" class="form-control form-control-lg {% if form.photo.errors %}is-invalid{% endif %}" required style="border-radius: 10px;">
+                    {% for error in form.photo.errors %}
+                        <div class="invalid-feedback">{{ error }}</div>
+                    {% endfor %}
+
                 <div class="text-center d-flex justify-content-around">
                     <button type="submit" class="btn btn-gradient btn-lg" style="padding: 10px 40px; border-radius: 50px; background: linear-gradient(135deg, #6a11cb, #2575fc); color: #fff; font-size: 1.2rem; font-weight: bold; border: none; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.2s ease, box-shadow 0.2s ease;">
                         Create

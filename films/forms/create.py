@@ -38,4 +38,20 @@ class CreateFilm(forms.ModelForm):
         if len(title) < 2:
             raise forms.ValidationError("The title must be at least 2 characters long.")
         return title
+    
+
+    def clean_director(self):
+        director = self.cleaned_data.get("director")
+        if len(director) < 2:
+            raise forms.ValidationError("The director's name must be at least 2 characters long.")
+        return director
+    
+
+    def clean_genre(self):
+        genre = self.cleaned_data.get("genre")
+        if len(genre) < 2:
+            raise forms.ValidationError("The genre must be at least 2 characters long.")
+        return genre
+    
+
 

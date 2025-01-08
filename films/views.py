@@ -21,6 +21,10 @@ def detail(request, id):
 def delete(request, id):
     try:
         film = Film.objects.get(id=id)
+
+        if film.photo and film.photo.path:
+            film.photo.delete(save=False)
+
         film.delete()
         return redirect("/films/")
     except Film.DoesNotExist:

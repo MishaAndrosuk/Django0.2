@@ -16,17 +16,22 @@
                         <h5 class="card-title mb-0">{{ film.title }}</h5>
                         <span class="badge bg-primary">{{ film.year }}</span>
                     </div>
-                    <div class="card-img-top">
-                        <img src="https://eticketsolutions.com/demo/themes/e-ticket/img/movie.jpg"
-                            alt="{{ film.title }}" class="img-fluid"
-                            style="max-height: 250px; object-fit: cover; width: 100%;">
+                    <div class="card-img-top" style="height: 250px; background-color: #f1f5fa;">
+                        {% if film.photo %}
+                        <img src="{{ film.photo.url }}" alt="{{ film.title }}" class="img-fluid"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                        {% else %}
+                        <img src="placeholder.jpg" alt="No Photo Available" class="img-fluid"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                        {% endif %}
                     </div>
                     <div class="card-body">
                         <p><strong>Director:</strong> {{ film.director }}</p>
                         <p><strong>Rating:</strong> {{ film.rating }}</p>
                         <p><strong>Genre:</strong> {{ film.genre }}</p>
                         <p><strong>Runtime:</strong> {{ film.runtime }} minutes</p>
-                        <p><strong>Description:</strong> <span class="film-description">{{film.description|truncatechars:100 }}</span></p>
+                        <p><strong>Description:</strong> <span
+                                class="film-description">{{film.description|truncatechars:100 }}</span></p>
                     </div>
                     <div class="card-footer d-flex justify-content-between align-items-center">
                         <div>
@@ -92,6 +97,12 @@
             background-color: #f1f5fa;
         }
 
+        .card-img-top img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .card-body {
             padding: 15px;
             height: 200px;
@@ -102,19 +113,12 @@
             background-color: #f8f9fa;
         }
 
-        .btn-group .btn {
-            transition: all 0.3s ease;
-        }
-
-        .btn-group .btn:hover {
-            transform: scale(1.1);
-        }
-
-
         .film-description {
             display: block;
             overflow: hidden;
             text-overflow: ellipsis;
+            max-height: 3.6em;
+            line-height: 1.2em;
         }
     </style>
     {% endblock %}
