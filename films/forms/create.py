@@ -6,12 +6,9 @@ class CreateFilm(forms.ModelForm):
     class Meta:
         model = Film
         fields = "__all__"
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        for field in self.fields.values():
-            field.required = True
-            field.initial = ""
+        widgets = {
+            'genre': forms.Select(attrs={'class': 'form-select'}),
+        }
 
 
     def clean_year(self):
@@ -45,13 +42,6 @@ class CreateFilm(forms.ModelForm):
         if len(director) < 2:
             raise forms.ValidationError("The director's name must be at least 2 characters long.")
         return director
-    
-
-    def clean_genre(self):
-        genre = self.cleaned_data.get("genre")
-        if len(genre) < 2:
-            raise forms.ValidationError("The genre must be at least 2 characters long.")
-        return genre
     
 
 

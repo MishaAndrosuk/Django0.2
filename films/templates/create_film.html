@@ -37,7 +37,7 @@
 
                 <div class="mb-4">
                     <label class="form-label" style="font-weight: bold;">Rating</label>
-                    <input type="number" step="0.1" name="rating" class="form-control form-control-lg {% if form.rating.errors %}is-invalid{% endif %}" placeholder="Enter rating (e.g., 8.5)" value="{{ form.rating.value }}" required style="border-radius: 10px;">
+                    <input type="number" step="0.1" name="rating" class="form-control form-control-lg {% if form.rating.errors %}is-invalid{% endif %}" placeholder="Enter rating (e.g., 8.5)" value="{{ form.rating.value }}" required style="border-radius: 10px;" max="10">
                     {% for error in form.rating.errors %}
                         <div class="invalid-feedback">{{ error }}</div>
                     {% endfor %}
@@ -98,6 +98,12 @@
         border-color: #6a11cb;
     }
     
+    .invalid-feedback {
+        color: #e74c3c;
+        font-size: 0.9rem;
+        margin-top: 0.25rem;
+    }
+
     .hidden-header {
         display: none;
     }

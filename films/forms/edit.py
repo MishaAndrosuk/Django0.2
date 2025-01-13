@@ -6,6 +6,9 @@ class EditFilm(forms.ModelForm):
     class Meta:
         model = Film
         fields = "__all__"
+        widgets = {
+            'genre': forms.Select(attrs={'class': 'form-select'}),
+        }
 
     def clean_year(self):
         year = self.cleaned_data.get("year")

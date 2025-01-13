@@ -22,12 +22,21 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                </ul>
+                <a href="/films/saved" class="btn btn-outline-secondary position-relative" title="Saved Films">
+                    <i class="bi bi-star-fill"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        {{ saved_films_count|default:0 }}
+                    </span>
+                </a>
+            </div>
         </div>
     </nav>
 
     <div class="container my-3">
         <h1>{% block header %}Title{% endblock %}</h1>
-
         <main>
             {% block content %}
             <p>Main Content</p>
@@ -49,3 +58,5 @@
 </body>
 
 </html>
+
+

@@ -1,67 +1,140 @@
 {% extends "_layout_films.html" %}
-{% block header %}<div class="hidden-header">Edit Film</div>{% endblock %}
+{% block header %}{% endblock %}
+
 {% block content %}
 <div class="container mt-5">
-    <div class="card shadow-lg border-0" style="border-radius: 20px;">
-        <div class="card-header text-white text-center" style="background: linear-gradient(135deg, #ff758c, #ff7eb3); padding: 30px;">
-            <h2 class="mb-0">Edit Film</h2>
-        </div>
-        <div class="card-body p-4" style="background-color: #f9f9f9;">
+    <div class="d-flex flex-column flex-md-row align-items-stretch justify-content-between shadow-lg border-0"
+        style="border-radius: 20px; overflow: hidden; background-color: #fdfefe;">
+        <div class="p-5" style="flex: 1;">
+            <h1 class="mb-4" style="font-size: 2.5rem; font-weight: 800; color: #2c3e50;">Edit Film</h1>
+
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
+
                 <div class="mb-4">
-                    <label class="form-label" style="font-weight: bold;">Title</label>
-                    <input value="{{ form.title.value }}" type="text" name="title" class="form-control form-control-lg" placeholder="Enter film title" required style="border-radius: 10px;">
+                    <label class="form-label" style="color: #95a5a6; font-size: 1.1rem; font-weight: 600;">Title</label>
+                    <input value="{{ form.title.value }}" type="text" name="title" class="form-control form-control-lg"
+                        placeholder="Enter film title" required style="border-radius: 10px; font-size: 1.4rem;">
                 </div>
+
                 <div class="mb-4">
-                    <label class="form-label" style="font-weight: bold;">Year</label>
-                    <input value="{{ form.year.value }}" type="number" name="year" class="form-control form-control-lg" placeholder="Enter release year" required style="border-radius: 10px;">
+                    <label class="form-label" style="color: #95a5a6; font-size: 1.1rem; font-weight: 600;">Year</label>
+                    <input value="{{ form.year.value }}" type="number" name="year" class="form-control form-control-lg"
+                        placeholder="Enter release year" required style="border-radius: 10px; font-size: 1.4rem;">
                 </div>
+
                 <div class="mb-4">
-                    <label class="form-label" style="font-weight: bold;">Director</label>
-                    <input value="{{ form.director.value }}" type="text" name="director" class="form-control form-control-lg" placeholder="Enter director's name" required style="border-radius: 10px;">
+                    <label class="form-label"
+                        style="color: #95a5a6; font-size: 1.1rem; font-weight: 600;">Director</label>
+                    <input value="{{ form.director.value }}" type="text" name="director"
+                        class="form-control form-control-lg" placeholder="Enter director's name" required
+                        style="border-radius: 10px; font-size: 1.4rem;">
                 </div>
+
                 <div class="mb-4">
-                    <label class="form-label" style="font-weight: bold;">Rating</label>
-                    <input value="{{ form.rating.value }}" type="number" step="0.1" name="rating" class="form-control form-control-lg" placeholder="Enter rating (e.g., 8.5)" required style="border-radius: 10px;">
+                    <label class="form-label"
+                        style="color: #95a5a6; font-size: 1.1rem; font-weight: 600;">Rating</label>
+                    <input value="{{ form.rating.value }}" type="number" step="0.1" name="rating"
+                        class="form-control form-control-lg" placeholder="Enter rating (e.g., 8.5)" required
+                        style="border-radius: 10px; font-size: 1.4rem;">
                 </div>
+
                 <div class="mb-4">
-                    <label class="form-label" style="font-weight: bold;">Genre</label>
-                    <input value="{{ form.genre.value }}" type="text" name="genre" class="form-control form-control-lg" placeholder="Enter genre (e.g., Comedy)" required style="border-radius: 10px;">
+                    <label class="form-label" style="color: #95a5a6; font-size: 1.1rem; font-weight: 600;">Genre</label>
+                    <input value="{{ form.genre.value }}" type="text" name="genre" class="form-control form-control-lg"
+                        placeholder="Enter genre (e.g., Comedy)" required
+                        style="border-radius: 10px; font-size: 1.4rem;">
                 </div>
+
                 <div class="mb-4">
-                    <label class="form-label" style="font-weight: bold;">Runtime (minutes)</label>
-                    <input value="{{ form.runtime.value }}" type="number" name="runtime" class="form-control form-control-lg" placeholder="Enter runtime in minutes" required style="border-radius: 10px;">
+                    <label class="form-label"
+                        style="color: #95a5a6; font-size: 1.1rem; font-weight: 600;">Runtime</label>
+                    <input value="{{ form.runtime.value }}" type="number" name="runtime"
+                        class="form-control form-control-lg" placeholder="Enter runtime in minutes" required
+                        style="border-radius: 10px; font-size: 1.4rem;">
                 </div>
+
                 <div class="mb-4">
-                    <label class="form-label" style="font-weight: bold;">Description</label>
-                    <textarea name="description" class="form-control form-control-lg" rows="4" placeholder="Enter a brief description" required style="border-radius: 10px;">{{ form.description.value }}</textarea>
+                    <label class="form-label"
+                        style="color: #95a5a6; font-size: 1.1rem; font-weight: 600;">Description</label>
+                    <textarea name="description" class="form-control form-control-lg" rows="4"
+                        placeholder="Enter a brief description" required
+                        style="border-radius: 10px; font-size: 1.3rem;">{{ form.description.value }}</textarea>
                 </div>
-                <div class="text-center d-flex justify-content-around">
-                    <button type="submit" class="btn btn-gradient btn-lg" style="padding: 10px 40px; border-radius: 50px; background: linear-gradient(135deg, #6a11cb, #2575fc); color: #fff; font-size: 1.2rem; font-weight: bold; border: none; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.2s ease, box-shadow 0.2s ease;">
+
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-dark btn-lg"
+                        style="padding: 12px 40px; font-size: 1rem; font-weight: 600;">
                         Save Changes
                     </button>
-                    <a href="/films/" class="btn btn-outline-secondary btn-lg" style="padding: 10px 40px; border-radius: 50px; font-size: 1.2rem; font-weight: bold;">
+                    <a href="/films/" class="btn btn-outline-secondary btn-lg"
+                        style="padding: 12px 40px; font-size: 1rem; font-weight: 600;">
                         Cancel
                     </a>
                 </div>
             </form>
         </div>
+
+        <div style="flex: 1; overflow: hidden; position: relative;">
+            <label for="photo-input" style="cursor: pointer;">
+                {% if film.photo %}
+                <img src="{{ film.photo.url }}" alt="{{ film.title }}" class="img-fluid w-100 h-100"
+                    style="object-fit: cover;">
+                {% else %}
+                <img src="placeholder.jpg" alt="No Photo Available" class="img-fluid w-100 h-100"
+                    style="object-fit: cover;">
+                {% endif %}
+            </label>
+            <input id="photo-input" type="file" name="photo" style="display: none;" onchange="previewPhoto(event)">
+        </div>
     </div>
 </div>
 
 <style>
-    .btn-gradient:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    .container {
+        max-width: 1200px;
     }
 
     .form-control-lg:focus {
-        box-shadow: 0 0 5px rgba(255, 117, 140, 0.5);
-        border-color: #ff758c;
+        box-shadow: 0 0 5px rgba(44, 62, 80, 0.3);
+        border-color: #34495e;
     }
-    .hidden-header {
-        display: none;
+
+    .btn-dark:hover {
+        transform: scale(1.05);
+        background-color: #2c3e50;
+        color: #fff;
+    }
+
+    h1 {
+        text-transform: uppercase;
+        text-shadow: 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    label[for="photo-input"] img {
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+
+    label[for="photo-input"] img:hover {
+        transform: scale(1.05);
     }
 </style>
+
+<script>
+    const photoInput = document.querySelector('input[name="photo"]');
+    const photoImg = document.querySelector('label[for="photo-input"] img');
+
+
+    photoInput.addEventListener('change', () => {
+        const file = photoInput.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = () => {
+                photoImg.src = reader.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
 {% endblock %}
