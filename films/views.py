@@ -1,16 +1,18 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse, JsonResponse
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
 
 from films.forms.create import CreateFilm
 from films.forms.edit import EditFilm
 from films.models import Film
-import os
-from django.conf import settings
+from django.core.paginator import Paginator
 
 
 def list(request):
     films = Film.objects.all()
-    return render(request, "list_films.html", {"films": films})
+    paginator = Paginator(films, 8)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, "list_films.html", {"page_obj": page_obj})
 
 def detail(request, id):
     try:

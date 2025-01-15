@@ -82,5 +82,118 @@
             "description": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
             "photo": "photos/TheMatrix.jpg"
         }
+    },
+    
+    {
+        "model": "films.film",
+        "pk": 7,
+        "fields": {
+            "title": "Fight Club",
+            "year": 1999,
+            "director": "David Fincher",
+            "rating": 8.8,
+            "genre": "Drama",
+            "runtime": 139,
+            "description": "An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.",
+            "photo": "photos/FightClub.jpg"
+        }
+    },
+    {
+        "model": "films.film",
+        "pk": 8,
+        "fields": {
+            "title": "Forrest Gump",
+            "year": 1994,
+            "director": "Robert Zemeckis",
+            "rating": 8.8,
+            "genre": "Drama",
+            "runtime": 142,
+            "description": "The presidencies of Kennedy and Johnson, the events of Vietnam, Watergate, and other history unfold through the perspective of an Alabama man with an IQ of 75.",
+            "photo": "photos/ForrestGump.jpg"
+        }
+    },
+    {
+        "model": "films.film",
+        "pk": 9,
+        "fields": {
+            "title": "The Lord of the Rings: The Fellowship of the Ring",
+            "year": 2001,
+            "director": "Peter Jackson",
+            "rating": 8.8,
+            "genre": "Fantasy",
+            "runtime": 178,
+            "description": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
+            "photo": "photos/TheFellowshipOfTheRing.jpg"
+        }
+    },
+    {
+        "model": "films.film",
+        "pk": 10,
+        "fields": {
+            "title": "Schindler's List",
+            "year": 1993,
+            "director": "Steven Spielberg",
+            "rating": 9.0,
+            "genre": "Biography",
+            "runtime": 195,
+            "description": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
+            "photo": "photos/SchindlersList.jpg"
+        }
+    },
+    {
+        "model": "films.film",
+        "pk": 11,
+        "fields": {
+            "title": "The Silence of the Lambs",
+            "year": 1991,
+            "director": "Jonathan Demme",
+            "rating": 8.6,
+            "genre": "Thriller",
+            "runtime": 118,
+            "description": "A young FBI cadet must receive the help of an incarcerated and manipulative cannibal killer to catch another serial killer, a madman who skins his victims.",
+            "photo": "photos/TheSilenceOfTheLambs.jpg"
+        }
+    },
+    {
+        "model": "films.film",
+        "pk": 12,
+        "fields": {
+            "title": "Interstellar",
+            "year": 2014,
+            "director": "Christopher Nolan",
+            "rating": 8.6,
+            "genre": "Sci-Fi",
+            "runtime": 169,
+            "description": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+            "photo": "photos/Interstellar.jpg"
+        }
+    },
+    {
+        "model": "films.film",
+        "pk": 13,
+        "fields": {
+            "title": "Gladiator",
+            "year": 2000,
+            "director": "Ridley Scott",
+            "rating": 8.5,
+            "genre": "Action",
+            "runtime": 155,
+            "description": "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.",
+            "photo": "photos/Gladiator.jpg"
+        }
+    },
+    {
+        "model": "films.film",
+        "pk": 14,
+        "fields": {
+            "title": "The Lion King",
+            "year": 1994,
+            "director": "Roger Allers, Rob Minkoff",
+            "rating": 8.5,
+            "genre": "Animation",
+            "runtime": 88,
+            "description": "Lion prince Simba and his father are targeted by his bitter uncle, who wants to ascend the throne himself.",
+            "photo": "photos/TheLionKing.jpg"
+        }
     }
 ]
