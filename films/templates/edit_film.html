@@ -3,8 +3,9 @@
 
 {% block content %}
 <div class="container mt-5">
-    <div class="d-flex flex-column flex-md-row align-items-stretch justify-content-between shadow-lg border-0"
+    <div class="d-flex flex-column flex-md-row align-items-start justify-content-between shadow-lg border-0"
         style="border-radius: 20px; overflow: hidden; background-color: #fdfefe;">
+        
         <div class="p-5" style="flex: 1;">
             <h1 class="mb-4" style="font-size: 2.5rem; font-weight: 800; color: #2c3e50;">Edit Film</h1>
 
@@ -42,8 +43,7 @@
                 <div class="mb-4">
                     <label class="form-label" style="color: #95a5a6; font-size: 1.1rem; font-weight: 600;">Genre</label>
                     <input value="{{ form.genre.value }}" type="text" name="genre" class="form-control form-control-lg"
-                        placeholder="Enter genre (e.g., Comedy)" required
-                        style="border-radius: 10px; font-size: 1.4rem;">
+                        placeholder="Enter genre (e.g., Comedy)" required style="border-radius: 10px; font-size: 1.4rem;">
                 </div>
 
                 <div class="mb-4">
@@ -63,7 +63,7 @@
                 </div>
 
                 <div class="text-center mt-4">
-                    <button type="submit" class="btn btn-dark btn-lg"
+                    <button type="submit" data-bs-toggle="toast" class="btn btn-dark btn-lg"
                         style="padding: 12px 40px; font-size: 1rem; font-weight: 600;">
                         Save Changes
                     </button>
@@ -75,17 +75,14 @@
             </form>
         </div>
 
-        <div style="flex: 1; overflow: hidden; position: relative;">
-            <label for="photo-input" style="cursor: pointer;">
-                {% if film.photo %}
-                <img src="{{ film.photo.url }}" alt="{{ film.title }}" class="img-fluid w-100 h-100"
-                    style="object-fit: cover;">
-                {% else %}
-                <img src="placeholder.jpg" alt="No Photo Available" class="img-fluid w-100 h-100"
-                    style="object-fit: cover;">
-                {% endif %}
-            </label>
-            <input id="photo-input" type="file" name="photo" style="display: none;" onchange="previewPhoto(event)">
+        <div class="p-5 d-flex flex-column align-items-center" style="flex: 0.6; text-align: center;">
+            {% if film.photo %}
+                <img src="{{ film.photo.url }}" alt="{{ film.title }}" class="img-fluid mb-3"
+                    style="width: 100%; max-height: 500px; object-fit: cover; border-radius: 20px;">
+                <input type="file" name="photo" class="form-control mt-3" style="border-radius: 10px;">
+            {% else %}
+                <input type="file" name="photo" class="form-control" style="border-radius: 10px;">
+            {% endif %}
         </div>
     </div>
 </div>
@@ -111,30 +108,12 @@
         text-shadow: 1px 2px rgba(0, 0, 0, 0.3);
     }
 
-    label[for="photo-input"] img {
-        cursor: pointer;
-        transition: transform 0.2s ease;
+    img {
+        transition: transform 0.3s ease;
     }
 
-    label[for="photo-input"] img:hover {
+    img:hover {
         transform: scale(1.05);
     }
 </style>
-
-<script>
-    const photoInput = document.querySelector('input[name="photo"]');
-    const photoImg = document.querySelector('label[for="photo-input"] img');
-
-
-    photoInput.addEventListener('change', () => {
-        const file = photoInput.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = () => {
-                photoImg.src = reader.result;
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-</script>
 {% endblock %}

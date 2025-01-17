@@ -5,6 +5,7 @@ from films.forms.create import CreateFilm
 from films.forms.edit import EditFilm
 from films.models import Film
 from django.core.paginator import Paginator
+from django.contrib import messages
 
 
 def list(request):
@@ -29,6 +30,7 @@ def delete(request, id):
             film.photo.delete(save=False)
 
         film.delete()
+        messages.success(request, "Фільм успішно видалено!")
         return redirect("/films/")
     except Film.DoesNotExist:
         return HttpResponse("Film not found", status=404)
@@ -42,6 +44,7 @@ def create(request):
 
         if form.is_valid():
             form.save()
+            messages.success(request, "Фільм успішно створено!")
             return redirect("/films/")
         else:
             return render(request, "create_film.html", {"form": form})
@@ -50,26 +53,22 @@ def create(request):
 
 
 def edit(request, id):
+
     film = Film.objects.get(id=id)
 
     if film is None:
         return HttpResponse("Film not found", status=404)
-    
+
     form = EditFilm(instance=film)
 
     if request.method == "POST":
-        form = EditFilm(request.POST, request.FILES, instance=film)
-
-        if request.FILES and film.photo:
-            film.photo.delete()
+        form = EditFilm(request.POST, instance=film, files=request.FILES)
 
         if form.is_valid():
-            if request.FILES.get('photo'):
-                if film.photo:
-                    film.photo.delete()  
-        form.save()  
-        return redirect("/films/")
-       
+            form.save()
+            messages.success(request, "Фільм успішно відредаговано!")
+            return redirect("/films/")
+
     return render(request, "edit_film.html", {"form": form, "film": film})
     
 

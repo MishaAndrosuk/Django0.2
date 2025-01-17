@@ -105,7 +105,9 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     <form method="post" action="{% url 'delete_film' film.id %}">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="submit" class="btn btn-danger" data-bs-toggle="toast" title="Delete Film">
+                            <i class="bi bi-trash3"></i> Delete
+                        </button>
                     </form>
                 </div>
             </div>
