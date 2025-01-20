@@ -18,9 +18,11 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf.urls.static import static
 from pd322Django import settings
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('films/', include('films.urls')),
+    path('liked/', include('liked.urls')),
 
 ]
 
