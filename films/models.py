@@ -10,7 +10,6 @@ class Film(models.Model):
     runtime = models.IntegerField(null=False, blank=False)
     description = models.TextField(null=False, blank=False, default="")
     photo = models.ImageField(blank=True, upload_to="photos/")
-    is_saved = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title

@@ -25,3 +25,4 @@ def clear(request):
     messages.success(request, "Liked cleared!")
 
     return redirect("/liked")
+

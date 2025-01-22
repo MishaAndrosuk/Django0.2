@@ -16,3 +16,8 @@ def get_liked(session):
 
 def clear_liked(session):
     session[LIKED_KEY] = {}
+
+def get_count(session):
+    return len(get_liked(session).keys())
+
+

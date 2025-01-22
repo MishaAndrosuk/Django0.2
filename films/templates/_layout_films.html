@@ -25,10 +25,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 </ul>
-                <a href="/films/saved" class="btn btn-outline-secondary position-relative" title="Saved Films">
+                <a href="/liked/" class="btn btn-outline-secondary position-relative" title="Liked Films">
                     <i class="bi bi-star-fill"></i>
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                        {{ saved_films_count|default:0 }}
+                        {{ liked_count|default:0 }}
                     </span>
                 </a>
             </div>
