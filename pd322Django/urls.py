@@ -22,7 +22,7 @@ from pd322Django import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('films/', include('films.urls')),
-    path('liked/', include('liked.urls')),
+    path('liked/', include('liked.urls'))
 ]
 
 if settings.DEBUG:

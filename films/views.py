@@ -13,7 +13,14 @@ def list(request):
     paginator = Paginator(films, 8)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    return render(request, "list_films.html", {"page_obj": page_obj})
+    
+    liked_films = request.session.get('film_liked_key', [])
+    liked_film_ids = set(map(int, liked_films))
+
+    return render(request, 'list_films.html', {
+        'page_obj': page_obj,
+        'liked_film_ids': liked_film_ids
+    })
 
 def detail(request, id):
     try:
@@ -75,5 +82,4 @@ def edit(request, id):
 def index(request):
     films = Film.objects.all()
     return render(request, "list_films.html", {"films": films})
-
 

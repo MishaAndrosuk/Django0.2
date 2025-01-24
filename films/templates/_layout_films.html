@@ -15,25 +15,26 @@
 
 <body>
     <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/films/">Home</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                </ul>
-                <a href="/liked/" class="btn btn-outline-secondary position-relative" title="Liked Films">
-                    <i class="bi bi-star-fill"></i>
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                        {{ liked_count|default:0 }}
-                    </span>
-                </a>
-            </div>
+    <div class="container-fluid">
+        <a class="navbar-brand text-dark" href="/films/">Home</a>
+        <a class="navbar-brand text-dark" href="/admin">Admin</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            </ul>
+            <a href="/liked/" class="btn btn-outline-dark position-relative" title="Liked Films">
+                <i class="bi bi-star-fill"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    {{ liked_count|default:0 }}
+                </span>
+            </a>
         </div>
-    </nav>
+    </div>
+</nav>
 
     {% if messages %}
     <div class="toast-container position-fixed top-0 end-0 p-3">
@@ -85,5 +86,3 @@
 </body>
 
 </html>
-
-
